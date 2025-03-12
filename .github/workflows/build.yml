@@ -30,7 +30,7 @@ jobs:
           ./android.sh --lts --disable-x264 --disable-x265
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mobile-ffmpeg-android
           path: prebuilt
