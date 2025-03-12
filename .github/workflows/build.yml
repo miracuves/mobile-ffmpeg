@@ -23,7 +23,8 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y automake autoconf build-essential pkg-config libtool nasm yasm meson ninja
+          sudo apt install -y automake autoconf build-essential pkg-config libtool nasm yasm meson
+          sudo apt install -y ninja-build || sudo apt install -y ninja
 
       - name: Build Mobile-FFmpeg
         run: |
