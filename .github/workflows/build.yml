@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository with Submodules
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
       - name: Set up JDK 11
         uses: actions/setup-java@v4
@@ -23,11 +26,15 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y automake autoconf build-essential pkg-config libtool nasm yasm meson
-          sudo apt install -y ninja-build || sudo apt install -y ninja
+          sudo apt install -y automake autoconf build-essential pkg-config libtool nasm yasm meson ninja-build
+
+      - name: Initialize Git Submodules
+        run: |
+          git submodule update --init --recursive
 
       - name: Build Mobile-FFmpeg
         run: |
+          chmod +x android.sh
           ./android.sh
 
       - name: Upload Build Artifacts
