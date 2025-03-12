@@ -26,8 +26,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y automake autoconf build-essential pkg-config libtool nasm yasm meson ninja-build
-
+          sudo apt install -y autoconf automake libtool pkg-config curl cmake gcc gperf texinfo yasm nasm bison autogen patch git
       - name: Initialize Git Submodules
         run: |
           git submodule update --init --recursive
