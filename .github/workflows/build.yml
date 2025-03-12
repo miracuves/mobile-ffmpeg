@@ -55,7 +55,7 @@ jobs:
       - name: Build Mobile-FFmpeg
         run: |
           chmod +x android.sh
-          ./android.sh --lts --disable-libx264 --disable-libx265 || (cat build.log && exit 1)
+          ./android.sh
 
       - name: Upload Build Logs on Failure
         if: failure()
