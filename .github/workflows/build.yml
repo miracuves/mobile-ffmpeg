@@ -52,10 +52,6 @@ jobs:
           git submodule sync
           git submodule update --init --recursive
 
-      - name: Debug: List Submodules
-        run: |
-          git submodule status
-
       - name: Build Mobile-FFmpeg
         run: |
           chmod +x android.sh
