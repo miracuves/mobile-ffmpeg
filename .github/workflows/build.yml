@@ -52,6 +52,14 @@ jobs:
           git submodule sync
           git submodule update --init --recursive
 
+      - name: Install Android NDK Toolchain
+        run: |
+          export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.4.7075529
+          echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
+          echo "PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH" >> $GITHUB_ENV
+
+          
+
       - name: Build Mobile-FFmpeg
         run: |
           chmod +x android.sh
