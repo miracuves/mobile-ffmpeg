@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Mobile-FFmpeg
         run: |
-          ./android.sh --lts --disable-x264 --disable-x265
+          ./android.sh
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
